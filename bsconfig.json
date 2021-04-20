@@ -1,0 +1,19 @@
+{
+  "name": "@ri7nz/rescript-intersection-observer",
+  "version": "0.1.0",
+  "sources": [
+    {
+      "dir": "src",
+      "subdirs": true
+    },
+    {
+      "type": "dev",
+      "dir": "examples",
+      "subdirs": true
+    }
+  ],
+  "package-specs": {
+    "module": "es6",
+    "in-source": true
+  }
+}

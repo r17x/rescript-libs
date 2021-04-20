@@ -1,0 +1,18 @@
+{
+  "name": "@ri7nz/rescript-intersection-observer",
+  "version": "1.0.0",
+  "author": "ri7nz <hi@rin.rocks>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ri7nz/rescript-intersection-observer.git"
+  },
+  "bugs": "https://github.com/ri7nz/rescript-intersection-observer/issues",
+  "license": "MIT",
+  "scripts": {
+    "start": "rescript build -w",
+    "build": "rescript build"
+  },
+  "devDependencies": {
+    "rescript": "9.1.1"
+  }
+}
