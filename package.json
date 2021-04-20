@@ -1,6 +1,6 @@
 {
   "name": "@ri7nz/rescript-intersection-observer",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0",
   "author": "ri7nz <hi@rin.rocks>",
   "repository": {
     "type": "git",
@@ -11,6 +11,9 @@
   "scripts": {
     "start": "rescript build -w",
     "build": "rescript build"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "devDependencies": {
     "rescript": "9.1.1"
