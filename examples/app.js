@@ -9,15 +9,18 @@ var observer = new IntersectionObserver((function (entries) {
           return ;
         }
         var head = entries[0];
-        console.log(head.intersectionRatio.y);
-        console.log(head.intersectionRatio.x);
-        console.log(head.intersectionRatio.width);
-        console.log(head.intersectionRatio.height);
-        console.log(head.intersectionRatio.top);
-        console.log(head.intersectionRatio.right);
-        console.log(head.intersectionRatio.bottom);
-        console.log(head.intersectionRatio.left);
         console.log(head.intersectionRatio);
+        console.log(head.boundingClientRect.x);
+        console.log(head.boundingClientRect.width);
+        console.log(head.boundingClientRect.height);
+        console.log(head.boundingClientRect.top);
+        console.log(head.boundingClientRect.right);
+        console.log(head.boundingClientRect.bottom);
+        console.log(head.boundingClientRect.left);
+        console.log(head.boundingClientRect);
+        console.log(head.time);
+        console.log(head.isVisible);
+        console.log(head.target);
         
       }));
 

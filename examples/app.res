@@ -5,15 +5,18 @@ DOMRect.fromRect(~x=5.3, ~y=5.2, ())->Js.log
 let observer = Intersection.Observer.new(entries => {
   switch entries {
   | [head] => {
-      head->Intersection.ObserverEntry.intersectionRatio->DOMRect.y->Js.log
-      head->Intersection.ObserverEntry.intersectionRatio->DOMRect.x->Js.log
-      head->Intersection.ObserverEntry.intersectionRatio->DOMRect.width->Js.log
-      head->Intersection.ObserverEntry.intersectionRatio->DOMRect.height->Js.log
-      head->Intersection.ObserverEntry.intersectionRatio->DOMRect.top->Js.log
-      head->Intersection.ObserverEntry.intersectionRatio->DOMRect.right->Js.log
-      head->Intersection.ObserverEntry.intersectionRatio->DOMRect.bottom->Js.log
-      head->Intersection.ObserverEntry.intersectionRatio->DOMRect.left->Js.log
-      head->Intersection.ObserverEntry.intersectionRatio->DOMRect.toJson->Js.log
+      head->Intersection.ObserverEntry.intersectionRatio->Js.log
+      head->Intersection.ObserverEntry.boundingClientRect->DOMRect.x->Js.log
+      head->Intersection.ObserverEntry.boundingClientRect->DOMRect.width->Js.log
+      head->Intersection.ObserverEntry.boundingClientRect->DOMRect.height->Js.log
+      head->Intersection.ObserverEntry.boundingClientRect->DOMRect.top->Js.log
+      head->Intersection.ObserverEntry.boundingClientRect->DOMRect.right->Js.log
+      head->Intersection.ObserverEntry.boundingClientRect->DOMRect.bottom->Js.log
+      head->Intersection.ObserverEntry.boundingClientRect->DOMRect.left->Js.log
+      head->Intersection.ObserverEntry.boundingClientRect->DOMRect.toJson->Js.log
+      head->Intersection.ObserverEntry.time->Js.log
+      head->Intersection.ObserverEntry.isVisible->Js.log
+      head->Intersection.ObserverEntry.target->Js.log
     }
   | _ => ()
   }
