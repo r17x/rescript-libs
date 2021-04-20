@@ -3,11 +3,13 @@ module ObserverEntry = {
   @get
   external boundingClientRect: t => DOMRect.t = "boundingClientRect"
   @get
-  external intersectionRatio: t => DOMRect.t = "intersectionRatio"
+  external intersectionRatio: t => float = "intersectionRatio"
   @get
   external intersectionRect: t => DOMRect.t = "intersectionRect"
   @get
   external isIntersecting: t => bool = "isIntersecting"
+  @get
+  external isVisible: t => bool = "isVisible"
   @get
   external rootBounds: t => DOMRect.t = "rootBounds"
   @get
