@@ -1,4 +1,5 @@
 ### Reasonml ###
+src/**/*.js
 /lib
 
 .bsb.lock
