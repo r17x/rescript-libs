@@ -15,6 +15,10 @@
   "publishConfig": {
     "access": "public"
   },
+  "release": {
+    "branches": ["main", "next"],
+    "plugins": ["@semantic-release/commit-analyzer", "@semantic-release/release-notes-generator", "@semantic-release/npm", "@semantic-release/github"]
+  },
   "devDependencies": {
     "rescript": "9.1.1"
   }
