@@ -2,7 +2,7 @@ name: SemVer Release
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   release:
     name: Release
@@ -15,7 +15,8 @@ jobs:
         with:
           node-version: 12
       - name: Install dependencies
-        run: npm ci
+        run: rm -rf node_modules && yarn install --frozen-lockfile
+        # run: npm ci
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
