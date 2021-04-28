@@ -20,9 +20,11 @@ external bottom: t => float = "bottom"
 @get
 external left: t => float = "left"
 
-// experiment
+type rect
+@obj
+external rect: (~x: float=?, ~y: float=?, ~width: float=?, ~height: float=?, unit) => rect = ""
+
 @scope("DOMRect") @val
-external fromRect: (~x: float=?, ~y: float=?, ~width: float=?, ~height: float=?, unit) => t =
-  "fromRect"
+external fromRect: rect => t = "fromRect"
 
 external toJson: t => Js.Json.t = "%identity"
