@@ -1,7 +1,5 @@
 external htmlDom: unit => Dom.element = "%identity"
 
-DOMRect.fromRect(~x=5.3, ~y=5.2, ())->Js.log
-
 let observer = Intersection.Observer.new(entries => {
   switch entries {
   | [head] => {
@@ -17,6 +15,8 @@ let observer = Intersection.Observer.new(entries => {
       head->Intersection.ObserverEntry.time->Js.log
       head->Intersection.ObserverEntry.isVisible->Js.log
       head->Intersection.ObserverEntry.target->Js.log
+      let rect = DOMRect.rect(~x=1.0, ~y=2.0, ())
+      rect->DOMRect.fromRect->Js.log
     }
   | _ => ()
   }

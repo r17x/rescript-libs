@@ -2,8 +2,6 @@
 
 import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 
-console.log(DOMRect.fromRect(5.3, 5.2, undefined, undefined));
-
 var observer = new IntersectionObserver((function (entries) {
         if (entries.length !== 1) {
           return ;
@@ -21,6 +19,11 @@ var observer = new IntersectionObserver((function (entries) {
         console.log(head.time);
         console.log(head.isVisible);
         console.log(head.target);
+        var rect = {
+          x: 1.0,
+          y: 2.0
+        };
+        console.log(DOMRect.fromRect(rect));
         
       }));
 
@@ -39,4 +42,4 @@ export {
   observer ,
   
 }
-/*  Not a pure module */
+/* observer Not a pure module */
