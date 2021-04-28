@@ -1,2 +1,4 @@
 examples/
 src/**/*.js
+lib/bs/**/*
+.github/
