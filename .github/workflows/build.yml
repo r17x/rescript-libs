@@ -1,12 +1,9 @@
 name: build testing
 on:
   push:
-    branches: [main]
+    branches: [main, rc]
   pull_request:
-    branches: [main]
-  release:
-    types: [semantic-release]
-
+    branches: [main, rc]
 jobs:
   build:
     runs-on: ubuntu-16.04
