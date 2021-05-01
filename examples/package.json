@@ -1,6 +1,6 @@
 {
   "name": "@ri7nz/examples",
-  "version": "6.6.6",
+  "version": "1.0.0-rc.1",
   "description": "examples of all packages",
   "license": "MIT",
   "scripts": {
