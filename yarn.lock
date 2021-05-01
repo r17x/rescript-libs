@@ -278,9 +278,6 @@
   dependencies:
     "@octokit/openapi-types" "^7.0.0"
 
-"@ri7nz/rescript-dom@0.0.0":
-  version "1.0.0-rc.1"
-
 "@semantic-release/changelog@5.0.1":
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/@semantic-release/changelog/-/changelog-5.0.1.tgz#50a84b63e5d391b7debfe021421589fa2bcdafe4"

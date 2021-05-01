@@ -10,7 +10,7 @@
     "rescript": "9.1.1"
   },
   "dependencies": {
-    "@ri7nz/rescript-dom": "0.0.0",
+    "@ri7nz/rescript-dom": "1.0.0-rc.1",
     "@ri7nz/rescript-intersection-observer": "1.1.0"
   }
 }
