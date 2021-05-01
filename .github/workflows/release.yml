@@ -27,7 +27,8 @@ jobs:
           registry-url: "https://npm.pkg.github.com"
           # Defaults to the user or organization that owns the workflow file
           scope: "@ri7nz"
+      # TODO: I'm assume we can handle in semantic-release
       # Publish to GitHub Packages
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+      # - run: npm publish
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
