@@ -1,3 +1,5 @@
+module DOMRect = ResDOM.DOMRect
+
 module ObserverEntry = {
   type t = Dom.intersectionObserverEntry
   @get
