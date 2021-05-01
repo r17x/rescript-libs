@@ -1,48 +1,25 @@
-# rescript-intersection-observer
-> nearly zero-cost bind [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver)
+# rescript-libs
+> a Collections and Essential set of Library, Utility, & Tools for [ReScript Lang](https://rescript-lang.org/)
+
+## List of Library
+
+* [rescipt-intersection-observer](https://github.com/ri7nz/rescript-libs/tree/main/rescript-intersection-observer)
+* [rescipt-dom](https://github.com/ri7nz/rescript-libs/tree/main/rescript-dom)
 
 
-## Installation
+## Contribution
+* use [conventionalcommits.org](https://www.conventionalcommits.org/) a commit standard will be better and very intuitive.
+* if you make a new feature or fixing. Please, make a pull request by project scope. (e.g: add feature for rescript-intersection-observer)
 
-Run the following in your favorit console: 
-```console
-> yarn add @ri7nz/rescript-intersection-observer
-```
+## Acknowledgements
 
-**OR**
+rescript-libs is based work on by the Authors and Contributors. There are, however, several influences that cannot be discovered directly
 
-```console
-> npm install --save @ri7nz/rescript-intersection-observer
-```
-
-Then, add `@ri7nz/rescript-intersection-observer` in your `bsconfig.json`:
-
-```diff
--- "bs-dependencies": [],
-++ "bs-dependencies": ["@ri7nz/rescript-intersection-observer"],
-```
-
-## Usage
-
-```rescript
-open Intersection
-
-// construct
-let observer = ObserverEntry.new(entries => {
-  // implement your observe here
-})
-
-// observe
-observer->Observer.observe(targetDOMElement)
-// unobserve
-observer->Observer.unobserve(targetDOMElement)
-
-```
-
-Or you can check this [**examples**](https://github.com/ri7nz/rescript-intersection-observer/tree/main/examples).
-
-## API
-> TODO: docs for API
-
-* **Intersection.Observer**
-* **Intersection.ObserverEntry**
+* [yarn-workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) for manage monorepo project.
+* [rescript-lang.org](https://rescript-lang.org/) the main reason why this project is exist.
+* [conventionalcommits.org](https://www.conventionalcommits.org/) a commit standard will be better and very intuitive.
+* [semantic-release](https://semantic-release.gitbook.io/semantic-release/) Fully automated version management and package publishing.
+* and Inspired by 
+  * [aantron/dream](https://github.com/aantron/dream)
+  * [bloodyowl/rescript-recoil](https://github.com/bloodyowl/rescript-recoil)
+  * [reasonml-community/bs-webapi-incubator](https://github.com/reasonml-community/bs-webapi-incubator)

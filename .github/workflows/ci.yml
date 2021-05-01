@@ -1,0 +1,46 @@
+name: CI
+on:
+  push:
+    branches: [main, next, rc]
+  pull_request:
+    branches: [main, next, rc]
+jobs:
+  ci:
+    name: Test or Build
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        node: [12]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Setup node
+        uses: actions/setup-node@v1
+      - name: Install dependencies
+        run: rm -rf node_modules && yarn install --frozen-lockfile
+      - name: Build All Packages
+        run: echo ${{ github.event_name }} && echo ${{ github.base_ref }} && echo ${{ github.ref }} && yarn run build
+      - name: Preview Release / Release Dry Run
+        env:
+          GITHUB_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        if: ${{ github.event_name == 'pull_request' && ( github.base_ref == 'next' || github.base_ref == 'main' || github.base_ref == 'rc' ) }}
+        run: yarn run multi-semantic-release --dry-run --debug
+        # run: yarn workspaces run semantic-release -e semantic-release-monorepo --dry-run && node -e "require('semantic-release-monorepo-hooks').hookAfterAll()"
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        if: ${{ github.event_name == 'push' && ( endsWith(github.ref, 'next') || endsWith(github.ref, 'main') || endsWith(github.ref, 'rc') ) }}
+        run: yarn run multi-semantic-release
+        # run: yarn workspaces run semantic-release -e semantic-release-monorepo && node -e "require('semantic-release-monorepo-hooks').hookAfterAll()"
+      # Setup .npmrc file to publish to GitHub Packages
+      # - uses: actions/setup-node@v1
+      #   with:
+      #     registry-url: "https://npm.pkg.github.com"
+      #     # Defaults to the user or organization that owns the workflow file
+      #     scope: "@ri7nz"
+      # TODO: I'm assume we can handle in semantic-release
+      # Publish to GitHub Packages
+      # - run: npm publish
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.PACKAGES_TOKEN }}

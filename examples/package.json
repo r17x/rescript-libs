@@ -1,6 +1,7 @@
 {
   "name": "@ri7nz/examples",
   "version": "6.6.6",
+  "private": true,
   "description": "examples of all packages",
   "license": "MIT",
   "scripts": {
