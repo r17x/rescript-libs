@@ -1,10 +1,17 @@
 {
   "name": "@ri7nz/rescript-dom",
   "version": "1.0.0-rc.1",
+  "description": "zero binding Web DOM or Web API implementation in ReScript",
   "author": "ri7nz <hi@rin.rocks>",
-  "description": "zero binding web DOM or Web API implementation in ReScript",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ri7nz/rescript-libs.git",
+    "directory": "rescript-dom"
+  },
+  "bugs": "https://github.com/ri7nz/rescript-libs/issues",
   "scripts": {
+    "start": "rescript build -w",
     "build": "rescript build -with-deps"
   },
   "publishConfig": {
