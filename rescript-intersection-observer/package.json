@@ -1,12 +1,14 @@
 {
   "name": "@ri7nz/rescript-intersection-observer",
   "version": "1.0.0-rc.1",
+  "description": "zero-cost binding Web API intersection-observer",
   "author": "ri7nz <hi@rin.rocks>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ri7nz/rescript-intersection-observer.git"
+    "url": "https://github.com/ri7nz/rescript-libs.git",
+    "directory": "rescript-intersection-observer"
   },
-  "bugs": "https://github.com/ri7nz/rescript-intersection-observer/issues",
+  "bugs": "https://github.com/ri7nz/rescript-libs/issues",
   "license": "MIT",
   "scripts": {
     "start": "rescript build -w",
