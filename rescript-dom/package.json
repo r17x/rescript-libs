@@ -1,0 +1,16 @@
+{
+  "name": "@ri7nz/rescript-dom",
+  "version": "0.0.0",
+  "author": "ri7nz <hi@rin.rocks>",
+  "description": "zero binding web DOM or Web API implementation in ReScript",
+  "license": "MIT",
+  "scripts": {
+    "build": "rescript build -with-deps"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "rescript": "9.1.1"
+  }
+}
