@@ -1,0 +1,16 @@
+{
+  "name": "@ri7nz/examples",
+  "version": "6.6.6",
+  "description": "examples of all packages",
+  "license": "MIT",
+  "scripts": {
+    "build": "rescript build -with-deps"
+  },
+  "devDependencies": {
+    "rescript": "9.1.1"
+  },
+  "dependencies": {
+    "@ri7nz/rescript-dom": "0.0.0",
+    "@ri7nz/rescript-intersection-observer": "1.1.0"
+  }
+}
