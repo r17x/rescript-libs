@@ -6,6 +6,9 @@
   "scripts": {
     "build": "rescript build -with-deps"
   },
+  "publishConfig": {
+    "access": "restricted"
+  },
   "devDependencies": {
     "rescript": "9.1.1"
   },
