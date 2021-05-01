@@ -1,9 +1,9 @@
 name: build testing
 on:
   push:
-    branches: [main, rc]
+    branches: [main, release, rc]
   pull_request:
-    branches: [main, rc]
+    branches: [main, release, rc]
 jobs:
   build:
     runs-on: ubuntu-16.04
