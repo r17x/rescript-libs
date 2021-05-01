@@ -1,0 +1,46 @@
+name: CI
+on:
+  push:
+    branches: [main, release, rc]
+  pull_request:
+    branches: [main, release, rc]
+jobs:
+  ci:
+    name: Test or Build
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        node: [12]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Install dependencies
+        run: rm -rf node_modules && yarn install --frozen-lockfile
+      - name: Build All Packages
+        run: yarn run build
+      - name: Preview Release / Release Dry Run
+        env:
+          GITHUB_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          if: ${{ github.event_name == 'pull_request' && ( github.base_ref == 'release' || github.base_ref == 'rc' ) }}
+        run: yarn workspaces run semantic-release -e semantic-release-monorepo --dry-run
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        if: ${{ github.event_name == 'push' && ( github.base_ref == 'release' || github.base_ref == 'rc' ) }}
+        run: yarn workspaces run semantic-release -e semantic-release-monorepo
+      # Setup .npmrc file to publish to GitHub Packages
+      # - uses: actions/setup-node@v1
+      #   with:
+      #     registry-url: "https://npm.pkg.github.com"
+      #     # Defaults to the user or organization that owns the workflow file
+      #     scope: "@ri7nz"
+      # TODO: I'm assume we can handle in semantic-release
+      # Publish to GitHub Packages
+      # - run: npm publish
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
