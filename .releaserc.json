@@ -1,6 +1,11 @@
 {
   "extends": "semantic-release-monorepo",
-  "branches": ["release", { "name": "rc", "prerelease": true }],
+  "branches": [
+    "+([0-9])?(.{+([0-9]),x}).x",
+    "main",
+    "next",
+    { "name": "rc", "prerelease": true }
+  ],
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",

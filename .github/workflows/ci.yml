@@ -12,26 +12,24 @@ jobs:
       matrix:
         node: [12]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
       - name: Setup node
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node }}
+        uses: actions/setup-node@v1
       - name: Install dependencies
         run: rm -rf node_modules && yarn install --frozen-lockfile
       - name: Build All Packages
-        run: yarn run build
+        run: echo ${{ github.event_name }} && echo ${{ github.base_ref }} && echo ${{ github.ref }} && yarn run build
       - name: Preview Release / Release Dry Run
         env:
           GITHUB_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          if: ${{ github.event_name == 'pull_request' && ( github.base_ref == 'release' || github.base_ref == 'rc' ) }}
+        if: ${{ github.event_name == 'pull_request' && ( github.base_ref == 'release' || github.base_ref == 'rc' ) }}
         run: yarn workspaces run semantic-release -e semantic-release-monorepo --dry-run
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        if: ${{ github.event_name == 'push' && ( github.base_ref == 'release' || github.base_ref == 'rc' ) }}
+        if: ${{ github.event_name == 'push' && ( endsWith(github.ref, 'release') || endsWith(github.ref, 'rc') ) }}
         run: yarn workspaces run semantic-release -e semantic-release-monorepo
       # Setup .npmrc file to publish to GitHub Packages
       # - uses: actions/setup-node@v1
