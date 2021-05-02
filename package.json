@@ -3,11 +3,14 @@
   "private": true,
   "workspaces": {
     "packages": [
-      "rescript-*"
+      "rescript-*",
+      "!examples"
     ]
   },
   "scripts": {
-    "build": "yarn workspaces run build"
+    "build": "yarn workspaces run build",
+    "release": "yarn multi-semantic-release",
+    "release:preview": "yarn release --dry-run"
   },
   "dependencies": {
     "@semantic-release/changelog": "5.0.1",

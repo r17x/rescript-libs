@@ -1,20 +1,19 @@
 name: CI
 on:
   push:
-    branches: [main, next, rc]
+    branches: [main, next, beta]
   pull_request:
-    branches: [main, next, rc]
+    branches: [main, next, beta]
 jobs:
   ci:
     name: Test or Build
     runs-on: ubuntu-18.04
-    strategy:
-      matrix:
-        node: [12]
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Setup node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12
       - name: Install dependencies
         run: rm -rf node_modules && yarn install --frozen-lockfile
       - name: Build All Packages
@@ -23,17 +22,21 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        if: ${{ github.event_name == 'pull_request' && ( github.base_ref == 'next' || github.base_ref == 'main' || github.base_ref == 'rc' ) }}
-        run: yarn run multi-semantic-release --dry-run --debug
+        if: ${{ github.event_name == 'pull_request' && ( github.base_ref == 'next' || github.base_ref == 'main' || github.base_ref == 'beta' ) }}
+        run: |
+          git tag --list 
+          yarn release:preview
         # run: yarn workspaces run semantic-release -e semantic-release-monorepo --dry-run && node -e "require('semantic-release-monorepo-hooks').hookAfterAll()"
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        if: ${{ github.event_name == 'push' && ( endsWith(github.ref, 'next') || endsWith(github.ref, 'main') || endsWith(github.ref, 'rc') ) }}
-        run: yarn run multi-semantic-release
+        if: ${{ github.event_name == 'push' && ( endsWith(github.ref, 'next') || endsWith(github.ref, 'main') || endsWith(github.ref, 'beta') ) }}
+        run: |
+          git tag --list 
+          yarn release
         # run: yarn workspaces run semantic-release -e semantic-release-monorepo && node -e "require('semantic-release-monorepo-hooks').hookAfterAll()"
-      # Setup .npmrc file to publish to GitHub Packages
+      # Setup .npmbeta file to publish to GitHub Packages
       # - uses: actions/setup-node@v1
       #   with:
       #     registry-url: "https://npm.pkg.github.com"
