@@ -1,9 +1,9 @@
 name: CI
 on:
   push:
-    branches: [main, release, rc]
+    branches: [main, next, rc]
   pull_request:
-    branches: [main, release, rc]
+    branches: [main, next, rc]
 jobs:
   ci:
     name: Test or Build
@@ -31,7 +31,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         if: ${{ github.event_name == 'push' && ( endsWith(github.ref, 'next') || endsWith(github.ref, 'main') || endsWith(github.ref, 'rc') ) }}
-        run: yarn run multi-semantic-release --dry-run --debug
+        run: yarn run multi-semantic-release
         # run: yarn workspaces run semantic-release -e semantic-release-monorepo && node -e "require('semantic-release-monorepo-hooks').hookAfterAll()"
       # Setup .npmrc file to publish to GitHub Packages
       # - uses: actions/setup-node@v1
