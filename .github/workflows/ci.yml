@@ -23,7 +23,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        if: ${{ github.event_name == 'pull_request' && ( github.base_ref == 'release' || github.base_ref == 'rc' ) }}
+        if: ${{ github.event_name == 'pull_request' && ( github.base_ref == 'main' || github.base_ref == 'release' || github.base_ref == 'rc' ) }}
         run: yarn workspaces run semantic-release -e semantic-release-monorepo --dry-run
       - name: Release
         env:
