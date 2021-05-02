@@ -24,13 +24,15 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         if: ${{ github.event_name == 'pull_request' && ( github.base_ref == 'next' || github.base_ref == 'main' || github.base_ref == 'rc' ) }}
-        run: yarn workspaces run semantic-release -e semantic-release-monorepo --dry-run
+        run: yarn run multi-semantic-release --dry-run --debug
+        # run: yarn workspaces run semantic-release -e semantic-release-monorepo --dry-run && node -e "require('semantic-release-monorepo-hooks').hookAfterAll()"
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         if: ${{ github.event_name == 'push' && ( endsWith(github.ref, 'next') || endsWith(github.ref, 'main') || endsWith(github.ref, 'rc') ) }}
-        run: yarn workspaces run semantic-release -e semantic-release-monorepo
+        run: yarn run multi-semantic-release --dry-run --debug
+        # run: yarn workspaces run semantic-release -e semantic-release-monorepo && node -e "require('semantic-release-monorepo-hooks').hookAfterAll()"
       # Setup .npmrc file to publish to GitHub Packages
       # - uses: actions/setup-node@v1
       #   with:
