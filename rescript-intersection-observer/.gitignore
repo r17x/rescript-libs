@@ -1,32 +1,9 @@
-*.exe
-*.obj
-*.out
-*.compile
-*.native
-*.byte
-*.cmo
-*.annot
-*.cmi
-*.cmx
-*.cmt
-*.cmti
-*.cma
-*.a
-*.cmxa
-*.obj
-*~
-*.annot
-*.cmj
-*.bak
-**/lib/bs
-**/lib/ocaml
-*.mlast
-*.mliast
-**/.vscode
-**/.merlin
-**/.bsb.lock
-/node_modules/
-**/node_modules/**
+### Reasonml ###
+src/**/*.js
+/lib
+
+.bsb.lock
+.merlin
 ### Node ###
 # Logs
 logs
@@ -152,7 +129,4 @@ dist/
 # Temporary folders
 tmp/
 temp/
-
-### Reasonml ###
-/lib
 

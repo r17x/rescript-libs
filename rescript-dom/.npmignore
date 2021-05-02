@@ -1,0 +1,6 @@
+examples/
+src/**/*.js
+lib/bs/**/*
+.github/
+release*
+.release*

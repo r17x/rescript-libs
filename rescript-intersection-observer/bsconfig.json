@@ -5,15 +5,12 @@
     {
       "dir": "src",
       "subdirs": true
-    },
-    {
-      "type": "dev",
-      "dir": "examples",
-      "subdirs": true
     }
   ],
   "package-specs": {
     "module": "es6",
     "in-source": true
-  }
+  },
+  "bs-dependencies": ["@ri7nz/rescript-dom"],
+  "pinned-dependencies": ["@ri7nz/rescript-dom"]
 }
