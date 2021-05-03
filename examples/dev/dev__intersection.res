@@ -1,3 +1,4 @@
+open ResDOM
 external htmlDom: unit => Dom.element = "%identity"
 
 let observer = Intersection.Observer.new(entries => {
