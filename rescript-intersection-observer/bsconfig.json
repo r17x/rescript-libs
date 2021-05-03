@@ -1,0 +1,16 @@
+{
+  "name": "@ri7nz/rescript-intersection-observer",
+  "version": "0.1.0",
+  "sources": [
+    {
+      "dir": "src",
+      "subdirs": true
+    }
+  ],
+  "package-specs": {
+    "module": "es6",
+    "in-source": true
+  },
+  "bs-dependencies": ["@ri7nz/rescript-dom"],
+  "pinned-dependencies": ["@ri7nz/rescript-dom"]
+}
