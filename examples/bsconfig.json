@@ -1,0 +1,23 @@
+{
+  "name": "@ri7nz/examples",
+  "version": "0.1.0",
+  "sources": [
+    {
+      "type": "dev",
+      "dir": "dev",
+      "subdirs": true
+    }
+  ],
+  "package-specs": {
+    "module": "es6",
+    "in-source": true
+  },
+  "bs-dependencies": [
+    "@ri7nz/rescript-intersection-observer",
+    "@ri7nz/rescript-dom"
+  ],
+  "pinned-dependencies": [
+    "@ri7nz/rescript-intersection-observer",
+    "@ri7nz/rescript-dom"
+  ]
+}
