@@ -1,0 +1,26 @@
+{
+  "packages": ["rescript-*", "!examples"],
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "version": "independent",
+  "changelogPreset": {
+    "name": "conventionalcommits",
+    "issueUrlFormat": "{{host}}/{{owner}}/{{repository}}/issues/{{id}}"
+  },
+  "ignoreChanges": [
+    "**/test/**",
+    "**/*.md",
+    "rescript-*/**/*.js",
+    "examples/**/*"
+  ],
+  "command": {
+    "version": {
+      "allowBranch": ["main", "beta", "release"],
+      "conventionalCommits": true
+    },
+    "publish": {
+      "conventionalCommits": true,
+      "verifyAccess": false
+    }
+  }
+}

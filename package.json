@@ -1,0 +1,35 @@
+{
+  "name": "rescript-libs",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "rescript-*",
+      "!examples"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ri7nz/rescript-libs.git"
+  },
+  "scripts": {
+    "commit": "git-cz",
+    "clean": "lerna exec --concurrency 1 --stream -- 'rescript clean' && lerna clean --yes",
+    "build": "lerna run build",
+    "prerelease": "lerna version --create-release github --yes",
+    "release": "lerna publish from-package --yes",
+    "postinstall": "lerna bootstrap"
+  },
+  "dependencies": {
+    "commitizen": "4.2.4",
+    "conventional-changelog": "3.1.24",
+    "conventional-changelog-cli": "2.1.1",
+    "cz-conventional-changelog": "3.3.0",
+    "lerna": "4.0.0",
+    "rescript": "9.1.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+name: CI
+on:
+  push:
+    branches: [main, beta, release]
+  pull_request:
+    branches: [main, beta, release]
+jobs:
+  ci:
+    name: Test or Build
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12
+      - name: Install dependencies
+        run: rm -rf node_modules && yarn install --frozen-lockfile
+      - name: Build All Packages
+        run: echo ${{ github.event_name }} && echo ${{ github.base_ref }} && echo ${{ github.ref }} && yarn run build
+      - name: Ensure access
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+          npm whoami
+        if: ${{ github.event_name == 'push' && ( endsWith(github.ref, 'beta') || endsWith(github.ref, 'main') || endsWith(github.ref, 'beta') ) }}
+      - name: Config git user
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+        if: ${{ github.event_name == 'push' && ( endsWith(github.ref, 'beta') || endsWith(github.ref, 'main') || endsWith(github.ref, 'beta') ) }}
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+          GH_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        if: ${{ github.event_name == 'push' && ( endsWith(github.ref, 'beta') || endsWith(github.ref, 'main') || endsWith(github.ref, 'beta') ) }}
+        run: |
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+          yarn release
