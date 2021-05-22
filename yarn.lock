@@ -914,6 +914,11 @@
   dependencies:
     "@octokit/openapi-types" "^7.2.0"
 
+"@ri7nz/rescript-dom@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@ri7nz/rescript-dom/-/rescript-dom-1.0.0.tgz#402199fc5d538a8385bd347d0dcb48cdb18bf793"
+  integrity sha512-zSFubeybebGNhQPkQH1XKG9FapDpZ2QBgCDVte2eA7AXYqcqDdyZHYbPq/FbSDO9zYOOrvwbLvRPROMUq0E/1A==
+
 "@tootallnate/once@1":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
