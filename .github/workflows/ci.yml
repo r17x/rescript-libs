@@ -1,11 +1,16 @@
 name: CI
 on:
   push:
-    branches: [main, beta, release]
+    branches: [beta, release/**, test]
+    paths:
+      - "!**/*.md"
+      - "!**/src/*.js"
+      - "**/src/**"
   pull_request:
-    branches: [main, beta, release]
+    branches: [main, beta, release/**, test]
+
 jobs:
-  ci:
+  tests:
     name: Test or Build
     runs-on: ubuntu-18.04
     steps:
@@ -17,25 +22,47 @@ jobs:
       - name: Install dependencies
         run: rm -rf node_modules && yarn install --frozen-lockfile
       - name: Build All Packages
-        run: echo ${{ github.event_name }} && echo ${{ github.base_ref }} && echo ${{ github.ref }} && yarn run build
+        run: yarn run build
+  release:
+    needs: tests
+    if: ${{ github.event_name == 'push' }}
+    name: Release or Prerelease
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12
+      - name: Install dependencies
+        run: rm -rf node_modules && yarn install --frozen-lockfile
       - name: Ensure access
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
           npm whoami
-        if: ${{ github.event_name == 'push' && ( endsWith(github.ref, 'beta') || endsWith(github.ref, 'main') || endsWith(github.ref, 'beta') ) }}
       - name: Config git user
         run: |
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
-        if: ${{ github.event_name == 'push' && ( endsWith(github.ref, 'beta') || endsWith(github.ref, 'main') || endsWith(github.ref, 'beta') ) }}
       - name: Release
+        if: ${{ ! endsWith(github.ref, 'beta') }}
         env:
           GITHUB_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
           GH_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        if: ${{ github.event_name == 'push' && ( endsWith(github.ref, 'beta') || endsWith(github.ref, 'main') || endsWith(github.ref, 'beta') ) }}
         run: |
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-          yarn release
+          yarn run lerna version --yes
+          yarn run lerna publish from-package --yes
+      - name: Prerelease
+        if: ${{ endsWith(github.ref, 'beta') }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+          GH_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+          yarn run lerna version --conventional-prerelease --yes
+          yarn run lerna publish from-package --yes

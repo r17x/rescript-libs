@@ -15,8 +15,6 @@
     "commit": "git-cz",
     "clean": "lerna exec --concurrency 1 --stream -- 'rescript clean' && lerna clean --yes",
     "build": "lerna run build",
-    "prerelease": "lerna version --create-release github --yes",
-    "release": "lerna publish from-package --yes",
     "postinstall": "lerna bootstrap"
   },
   "dependencies": {
