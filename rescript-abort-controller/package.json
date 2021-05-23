@@ -1,0 +1,29 @@
+{
+  "name": "rescript-abort-controller",
+  "version": "0.0.0",
+  "description": "zero-cost bind for Web API AbortController",
+  "keywords": [
+    "web-api",
+    "rescript",
+    "abort-controller",
+    "web",
+    "DOM"
+  ],
+  "author": "ri7nz <hi@rin.rocks>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ri7nz/rescript-libs.git",
+    "directory": "rescript-abort-controller"
+  },
+  "scripts": {
+    "start": "rescript build -w",
+    "build": "rescript build -with-deps"
+  },
+  "bugs": {
+    "url": "https://github.com/ri7nz/rescript-libs/issues"
+  },
+  "devDependencies": {
+    "rescript": "9.1.1"
+  }
+}
