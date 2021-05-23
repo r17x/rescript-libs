@@ -1,0 +1,18 @@
+{
+  "name": "@ri7nz/examples",
+  "version": "6.6.6",
+  "description": "examples of all packages",
+  "license": "MIT",
+  "scripts": {
+    "build": "rescript build -with-deps"
+  },
+  "devDependencies": {
+    "rescript": "9.1.1"
+  },
+  "dependencies": {
+    "@ri7nz/rescript-dom": "link:../rescript-dom",
+    "@ri7nz/rescript-intersection-observer": "link:../rescript-intersection-observer",
+    "bs-webapi": "^0.19.1",
+    "rescript-abort-controller": "link:../rescript-abort-controller"
+  }
+}
