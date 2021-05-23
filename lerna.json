@@ -12,7 +12,7 @@
       "allowBranch": ["beta", "release/*"],
       "conventionalCommits": true,
       "createRelease": "github",
-      "message": "chore(release): publish %s"
+      "message": "chore(release): publish"
     },
     "publish": {
       "conventionalCommits": true,
