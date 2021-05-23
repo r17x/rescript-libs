@@ -1,14 +1,18 @@
 name: CI
 on:
   push:
-    branches: [beta, release/**, test]
-    paths:
-      - "!**/*.md"
-      - "!**/src/*.js"
-      - "**/src/**"
+    branches:
+      - beta
+      - "release/**"
+      - test
+    paths-ignore:
+      - "**/*.md"
   pull_request:
-    branches: [main, beta, release/**, test]
-
+    branches:
+      - main
+      - beta
+      - "release/**"
+      - test
 jobs:
   tests:
     name: Test or Build
