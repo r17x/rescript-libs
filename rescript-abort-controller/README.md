@@ -35,7 +35,7 @@ abortController->AbortController.signal
 abortController->AbortController.abort
 ```
 
-Or you can check this [**examples**](https://github.com/ri7nz/rescript-intersection-observer/tree/main/examples).
+Or you can check this [**examples**](https://github.com/ri7nz/rescript-intersection-observer/tree/main/examples/dev/dev__abortcontroller.res).
 
 ## API
 > (WIP)
