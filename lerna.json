@@ -7,21 +7,17 @@
     "name": "conventionalcommits",
     "issueUrlFormat": "{{host}}/{{owner}}/{{repository}}/issues/{{id}}"
   },
-  "ignoreChanges": [
-    "**/test/**",
-    "**/*.md",
-    "rescript-*/**/*.js",
-    "**/*.gitignore",
-    "examples/**/*"
-  ],
   "command": {
     "version": {
-      "allowBranch": ["main", "beta", "release"],
-      "conventionalCommits": true
+      "allowBranch": ["beta", "release/*"],
+      "conventionalCommits": true,
+      "createRelease": "github",
+      "message": "chore(release): publish %s"
     },
     "publish": {
       "conventionalCommits": true,
-      "verifyAccess": false
+      "verifyAccess": false,
+      "ignoreChanges": ["**/test/**", "**/*.md", "**/src/*.js"]
     }
   }
 }
