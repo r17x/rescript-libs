@@ -58,8 +58,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-          yarn run lerna version --yes
-          yarn run lerna publish from-package --yes
+          yarn run lerna publish
       - name: Prerelease
         if: ${{ endsWith(github.ref, 'beta') }}
         env:
