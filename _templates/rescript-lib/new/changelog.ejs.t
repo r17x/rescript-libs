@@ -1,0 +1,3 @@
+---
+to: <%= name %>/CHANGELOG.md
+---

@@ -7,6 +7,7 @@ on:
       - test
     paths-ignore:
       - "**/*.md"
+      - "_templates"
   pull_request:
     branches:
       - main
