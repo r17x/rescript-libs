@@ -7,12 +7,30 @@
     "build": "rescript build -with-deps"
   },
   "devDependencies": {
+    "react-scripts": "4.0.3",
     "rescript": "9.1.1"
   },
   "dependencies": {
+    "@rescript/react": "^0.10.3",
     "@ri7nz/rescript-dom": "link:../rescript-dom",
     "@ri7nz/rescript-intersection-observer": "link:../rescript-intersection-observer",
     "bs-webapi": "^0.19.1",
-    "rescript-abort-controller": "link:../rescript-abort-controller"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "rescript-abort-controller": "link:../rescript-abort-controller",
+    "rescript-web-vitals": "link:../rescript-web-vitals",
+    "web-vitals": "^1.1.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

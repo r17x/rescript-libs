@@ -1,21 +1,32 @@
 {
   "name": "@ri7nz/examples",
+  "refmt": 3,
+  "reason": {
+    "react-jsx": 3
+  },
   "version": "0.1.0",
   "sources": [
+    {
+      "dir": "src",
+      "subdirs": true
+    },
     {
       "type": "dev",
       "dir": "dev",
       "subdirs": true
     }
   ],
+  "bsc-flags": ["-bs-super-errors", "-bs-no-version-header", "-open Belt"],
   "package-specs": {
     "module": "es6",
     "in-source": true
   },
   "bs-dependencies": [
+    "@rescript/react",
     "@ri7nz/rescript-intersection-observer",
     "@ri7nz/rescript-dom",
     "rescript-abort-controller",
+    "rescript-web-vitals",
     "bs-webapi"
   ]
 }
