@@ -16,6 +16,7 @@
     "@ri7nz/rescript-intersection-observer",
     "@ri7nz/rescript-dom",
     "rescript-abort-controller",
+    "rescript-react-fetch",
     "bs-webapi"
   ]
 }

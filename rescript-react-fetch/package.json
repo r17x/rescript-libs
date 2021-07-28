@@ -1,0 +1,34 @@
+{
+  "name": "rescript-react-fetch",
+  "version": "0.0.0",
+  "description": "(experimental 🚧) Zero-cost binding for react-fetch",
+  "author": "ri7nz <hi@rin.rocks>",
+  "license": "MIT",
+  "keywords": [
+    "ReScript",
+    "ReasonML",
+    "React",
+    "ReactFetch",
+    "ReactServer"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ri7nz/rescript-libs.git",
+    "directory": "rescript-react-fetch"
+  },
+  "bugs": "https://github.com/ri7nz/rescript-libs/issues",
+  "scripts": {
+    "start": "rescript build -w",
+    "build": "rescript build -with-deps",
+    "clean": "rescript clean"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "rescript": "9.1.1"
+  },
+  "peerDependencies": {
+    "react-fetch": ">=0.0.0"
+  }
+}

@@ -13,6 +13,7 @@
     "@ri7nz/rescript-dom": "link:../rescript-dom",
     "@ri7nz/rescript-intersection-observer": "link:../rescript-intersection-observer",
     "bs-webapi": "^0.19.1",
-    "rescript-abort-controller": "link:../rescript-abort-controller"
+    "rescript-abort-controller": "link:../rescript-abort-controller",
+    "rescript-react-fetch": "link:../rescript-react-fetch"
   }
 }
