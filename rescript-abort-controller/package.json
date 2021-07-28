@@ -1,6 +1,6 @@
 {
   "name": "rescript-abort-controller",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "zero-cost bind for Web API AbortController",
   "keywords": [
     "web-api",

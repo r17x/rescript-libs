@@ -1,6 +1,6 @@
 {
   "name": "@ri7nz/rescript-intersection-observer",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "zero-cost binding Web API intersection-observer",
   "author": "ri7nz <hi@rin.rocks>",
   "license": "MIT",
