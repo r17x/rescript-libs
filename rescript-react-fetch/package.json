@@ -1,6 +1,6 @@
 {
   "name": "rescript-react-fetch",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "(experimental 🚧) Zero-cost binding for react-fetch",
   "author": "ri7nz <hi@rin.rocks>",
   "license": "MIT",
