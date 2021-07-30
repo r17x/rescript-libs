@@ -1,0 +1,29 @@
+{
+  "name": "rescript-worker",
+  "version": "0.0.1",
+  "description": "zero-cost bind for Web Workers API",
+  "keywords": [
+    "web-api",
+    "rescript",
+    "web-worker",
+    "worker",
+    "Web-Workers-API"
+  ],
+  "author": "ri7nz <hi@rin.rocks>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ri7nz/rescript-libs.git",
+    "directory": "rescript-worker"
+  },
+  "scripts": {
+    "start": "rescript build -w",
+    "build": "rescript build -with-deps"
+  },
+  "bugs": {
+    "url": "https://github.com/ri7nz/rescript-libs/issues"
+  },
+  "devDependencies": {
+    "rescript": "9.1.1"
+  }
+}
