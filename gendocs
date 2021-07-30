@@ -1,0 +1,31 @@
+#!/usr/bin/env zx
+
+let _ROOT = await $`pwd`
+_ROOT = _ROOT.stdout;
+
+const objPackages = str => `{"packages": ${str}}`
+
+let stdOut = await $`lerna list --json`
+
+const {packages}  = JSON.parse(
+  objPackages(
+    stdOut.stdout.trim()
+  )
+)
+
+const gen = async packages => {
+  packages.forEach(async _package => {
+    let {location, name} = _package;
+    await $`cd ${location} && yarn bsdoc build ${name}`
+  })
+}
+
+const copyTo = (pacakages, to) => {
+  packages.forEach( async _package => {
+    let {location, name} = _package;
+    await $`cp -r ${location}/docs/**/* ${to}`
+  })
+}
+
+await gen(packages)
+await copyTo(packages, _ROOT.trim() + "/docs/")
