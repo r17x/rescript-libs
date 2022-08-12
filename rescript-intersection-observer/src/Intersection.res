@@ -20,11 +20,27 @@ module ObserverEntry = {
   external time: t => float = "time"
 }
 
+module ObserverInit = {
+  type t
+
+  @obj
+  external new: (
+    ~root: Dom.element=?,
+    ~rootMargin: string=?,
+    ~thresholds: array<float>=?,
+    unit,
+  ) => t = ""
+}
+
 module Observer = {
   type t = Dom.intersectionObserver
 
   @new
   external new: (array<ObserverEntry.t> => unit) => t = "IntersectionObserver"
+
+  @new
+  external newWithOption: (array<ObserverEntry.t> => unit, ObserverInit.t) => t =
+    "IntersectionObserver"
   // properties
 
   // TODO: intersectionObserver.root return Dom.element or Dom.document

@@ -3,6 +3,8 @@
 
 var ObserverEntry = {};
 
+var ObserverInit = {};
+
 var Observer = {};
 
 var $$DOMRect;
@@ -10,6 +12,7 @@ var $$DOMRect;
 export {
   $$DOMRect ,
   ObserverEntry ,
+  ObserverInit ,
   Observer ,
   
 }
